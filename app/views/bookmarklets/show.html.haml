@@ -1,0 +1,15 @@
+- title "Bookmarklet"
+
+%p
+  %strong Name:
+  =h @bookmarklet.name
+%p
+  %strong Code:
+  =h @bookmarklet.code
+
+%p
+  = link_to "Edit", edit_bookmarklet_path(@bookmarklet)
+  |
+  = link_to "Destroy", @bookmarklet, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", bookmarklets_path

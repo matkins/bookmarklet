@@ -1,0 +1,15 @@
+- title "Bookmarklets"
+
+%table
+  %tr
+    %th Name
+    %th Code
+  - for bookmarklet in @bookmarklets
+    %tr
+      %td= h bookmarklet.name
+      %td= h bookmarklet.code
+      %td= link_to 'Show', bookmarklet
+      %td= link_to 'Edit', edit_bookmarklet_path(bookmarklet)
+      %td= link_to 'Destroy', bookmarklet, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Bookmarklet", new_bookmarklet_path
