@@ -1,5 +1,5 @@
 -semantic_form_remote_for bookmarklet, :url => url_for(:controller => :bookmarklets, :action => :generate), :method => :post do |form|
   -form.inputs do
     =form.input :name
-    =form.input :code, :wrapper_html => {:class => 'bespin', :style => 'width:200px;height:200px'}
+    =form.input :code, :input_html => {:class => "bespin"}
   =form.buttons

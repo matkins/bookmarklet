@@ -1,8 +1,10 @@
 !!! Strict
 %html{"xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %link#bespin_base{:href => "bespin"}
-    =javascript_include_tag 'BespinEmbedded.uncompressed.js'
-    =javascript_include_tag :defaults
+    %link#bespin_base{:href => "bespin/"}
+    =stylesheet_link_tag '../bespin/BespinEmbedded.css'
+    =#javascript_include_tag :defaults    
+    = google_javascripts :jquery, :jqueryui
+    =javascript_include_tag '../bespin/BespinEmbedded.js'
   %body
     =yield

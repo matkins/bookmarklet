@@ -1,9 +1,7 @@
 class BookmarkletsController < ApplicationController
   def generate
-    render :update do |page|
-        bookmarklet = Bookmarklet.new(params[:bookmarklet])
-        page["bookmarklet"].replace(render("bookmarklets/bookmarklet", :bookmarklet => bookmarklet))
-    end
+    bookmarklet = Bookmarklet.new(params[:bookmarklet])
+    render :partial => "bookmarklets/bookmarklet", :locals => {:bookmarklet => bookmarklet}
   end
   
   def index
