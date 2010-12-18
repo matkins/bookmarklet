@@ -1,6 +1,6 @@
 -semantic_form_remote_for bookmarklet, :url => url_for(:controller => :bookmarklets, :action => :generate), :method => :post do |form|
   -form.inputs do
     =form.input :name, :label => false
-    =form.input :code, :label => false, :input_html => {:class => "bespin", "data-bespinoptions"=>'{"settings":{"tabstop":2, "theme":"white"},"stealFocus":true, "syntax": "js", "initialContent": "javascript: alert(\'Hello world!\');"}'}
+    =form.input :code, :label => false, :input_html => {:class => "bespin", "data-bespinoptions"=>'{"settings":{"tabstop":2, "theme":"white"},"stealFocus":true, "syntax": "js"}'}
   =form.buttons
   =link_to_function("Test it out", "Bookmarklet.evaluate($('#bookmarklet_code')[0].bespin.editor.value)")
