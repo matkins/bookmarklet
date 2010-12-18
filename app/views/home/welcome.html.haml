@@ -1,3 +1,15 @@
+:javascript
+  var Bookmarklet = {
+    evaluate: function() {
+      try {
+        eval($('#bookmarklet_code')[0].bespin.editor.value);
+      } catch ( e ) {
+        // Code to run if an exception occurs
+        alert('Syntax error');
+      }
+    }
+  }
+
 #bookmarklet
 =render 'bookmarklets/remote_form', :bookmarklet => @bookmarklet
 =#render 'home/form'
