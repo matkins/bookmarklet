@@ -2,5 +2,8 @@
   -form.inputs do
     =form.input :name, :label => false
     =form.input :code, :label => false, :input_html => {:class => "bespin", "data-bespinoptions"=>'{"settings":{"tabstop":2, "theme":"white"},"stealFocus":true, "syntax": "js"}'}
-  =form.buttons
-  =link_to_function("Test it out", "Bookmarklet.evaluate($('#bookmarklet_code')[0].bespin.editor.value)")
+  -form.buttons do
+    =form.commit_button "Submit", :button_html => {:style => "display:none"}
+=link_to_function("Test it out", "Bookmarklet.evaluate($('#bookmarklet_code')[0].bespin.editor.value)", :class=>"bttn")
+=link_to_function("Create Bookmarklet", "$('#bookmarklet_submit').click()", :class=>"bttn right")
+%br.clear

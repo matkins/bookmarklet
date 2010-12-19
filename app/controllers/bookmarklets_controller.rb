@@ -1,21 +1,25 @@
 class BookmarkletsController < ApplicationController
   def generate
-    bookmarklet = Bookmarklet.new(params[:bookmarklet])
-    render :partial => "bookmarklets/bookmarklet", :locals => {:bookmarklet => bookmarklet}
+    if request.xhr?
+      bookmarklet = Bookmarklet.new(params[:bookmarklet])
+      render :update do |page|      
+        page["bookmarklet"].replace(render("bookmarklets/bookmarklet", :bookmarklet => bookmarklet))
+      end
+    end
   end
-  
+
   def index
     @bookmarklets = Bookmarklet.all
   end
-  
+
   def show
     @bookmarklet = Bookmarklet.find(params[:id])
   end
-  
+
   def new
     @bookmarklet = Bookmarklet.new
   end
-  
+
   def create
     @bookmarklet = Bookmarklet.new(params[:bookmarklet])
     if @bookmarklet.save
@@ -25,11 +29,11 @@ class BookmarkletsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @bookmarklet = Bookmarklet.find(params[:id])
   end
-  
+
   def update
     @bookmarklet = Bookmarklet.find(params[:id])
     if @bookmarklet.update_attributes(params[:bookmarklet])
@@ -39,7 +43,7 @@ class BookmarkletsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @bookmarklet = Bookmarklet.find(params[:id])
     @bookmarklet.destroy
